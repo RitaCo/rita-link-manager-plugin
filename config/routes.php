@@ -1,6 +1,8 @@
 <?php
 use Cake\Routing\Router;
 
-Router::plugin('Rita/LinkManager', function ($routes) {
-    $routes->fallbacks();
+Router::prefix('admin',  function ($routes) {
+    $routes->plugin('Rita/LinkManager',['path' => '/links-manager'], function ($routes) {
+        $routes->fallbacks();
+    });
 });

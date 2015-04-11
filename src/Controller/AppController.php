@@ -1,6 +1,6 @@
 <?php
 
-namespace Rita/LinkManager\Controller;
+namespace Rita\LinkManager\Controller;
 
 use App\Controller\AppController as BaseController;
 
