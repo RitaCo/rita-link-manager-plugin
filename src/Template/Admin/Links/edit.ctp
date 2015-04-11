@@ -1,28 +1,43 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $learningPost->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $learningPost->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Learning Posts'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Learning Categories'), ['controller' => 'LearningCategories', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Learning Category'), ['controller' => 'LearningCategories', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
-<div class="learningPosts form large-10 medium-9 columns">
-    <?= $this->Form->create($learningPost); ?>
-    <fieldset>
-        <legend><?= __('Edit Learning Post') ?></legend>
+
+<?php
+   $this->assign('title','مدیریت پیوندها / درج پیوند');
+   $this->assign('note','فهرست تمامی موضوع‌ها');
+?>
+<div class="ui-panel-framed ">
+	<div class="panel-header bg-flat">
+		<div class="header-caption">فهرست</div>
+	</div>
+	<div class="panel-body padding-none ">
+      <?= $this->Form->create($post,['type' => 'file']); ?>
+		<div class="body-header padding-none">
+			<div class="ui-toolbar">
+				<div class="toolbar-band ">
+					<a class="btn" href="<?= $this->Url->build(['action' => 'add'])?>">	
+						<i class="  icon-createfolder"></i>
+						<span>جدید</span>
+					</a>
+					
+				</div>
+			</div>
+		</div>
+		<div class="body-splitter"></div>
+        
+		<div class="body-container padding-none">
+          
         <?php
-            echo $this->Form->input('learning_category_id', ['options' => $learningCategories, 'empty' => true]);
-            echo $this->Form->input('title');
-            echo $this->Form->input('body');
-            echo $this->Form->input('slug');
+            echo $this->Form->input('category_id', [ 'empty' => true, 'label' => 'موضوع']);
+            echo $this->Form->input('title',['label' => 'عنوان']);
+            echo $this->Form->input('url',['label' => 'آدرس' , 'dir' => 'ltr']);
+            echo $this->Form->input('logo_remote',['label' => 'آدرس لوگو']);
+            echo $this->Form->input('logo_upload',['label' => 'فایل لگو','type'=> 'file']);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+ 
+	</div>
+    <div class="body-footer ">
+        <?= $this->Form->submit(__('ذخیره')) ?>
+    </div>
+          
     <?= $this->Form->end() ?>
+	</div>
 </div>
+

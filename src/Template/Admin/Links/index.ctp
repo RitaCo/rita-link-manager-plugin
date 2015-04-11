@@ -25,31 +25,33 @@
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id','شناسه') ?></th>
-            <th><?= $this->Paginator->sort('category_id','موضوع') ?></th>
-            <th><?= $this->Paginator->sort('title','عنوان') ?></th>
-            <th><?= $this->Paginator->sort('slug', 'نامک ') ?></th>
-            <th><?= $this->Paginator->sort('created','ایجاد') ?></th>
-            <th><?= $this->Paginator->sort('modified', 'تغییر') ?></th>
+            <th width="5%"><?= $this->Paginator->sort('id','#') ?></th>
+            <th width="5%"><?= $this->Paginator->sort('category_id','موضوع') ?></th>
+            <th width="20%"><?= $this->Paginator->sort('title','عنوان') ?></th>
+            <th width="30%"><?= $this->Paginator->sort('url', 'آدرس') ?></th>
+            <th width="5%"><?= $this->Paginator->sort('created','ایجاد') ?></th>
+            <th width="5%"><?= $this->Paginator->sort('modified', 'تغییر') ?></th>
             
-            <th class="actions"><?= __('عملیات') ?></th>
+            <th width="25%" class="actions"><?= __('عملیات') ?></th>
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($Posts as $Post): ?>
+    <?php foreach ($Links as $Post): ?>
         <tr>
             <td><?= $this->Number->format($Post->id) ?></td>
             <td>
                 <?= $Post->category->title ?>
             </td>
             <td><?= h($Post->title) ?></td>
-            <td><?= h($Post->slug) ?></td>
-            <td><?= h($Post->created) ?></td>
-            <td><?= h($Post->modified) ?></td>
+            <td><?= h($Post->url) ?></td>
+            <td><?= h($Post->created->i18nFormat("YY/MM/dd")) ?></td>
+            <td><?= h($Post->modified->i18nFormat("YY/MM/dd")) ?></td>
             <td class="actions">
+                <div class="btn-group">
                 <?= $this->Html->link('مشاهده', ['action' => 'view', $Post->id],['class' => 'btn']) ?>
                 <?= $this->Html->link('ویرایش', ['action' => 'edit', $Post->id],['class' => 'btn btn-green']) ?>
                 <?= $this->Form->postLink('حذف', ['action' => 'delete', $Post->id], ['class' => 'btn btn-red','confirm' => __('Are you sure you want to delete # {0}?', $Post->id)]) ?>
+                </div>
             </td>
         </tr>
 

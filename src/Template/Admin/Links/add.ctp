@@ -8,7 +8,7 @@
 		<div class="header-caption">فهرست</div>
 	</div>
 	<div class="panel-body padding-none ">
-      <?= $this->Form->create($post); ?>
+      <?= $this->Form->create($post,['type' => 'file']); ?>
 		<div class="body-header padding-none">
 			<div class="ui-toolbar">
 				<div class="toolbar-band ">
@@ -28,8 +28,7 @@
             echo $this->Form->input('category_id', [ 'empty' => true, 'label' => 'موضوع']);
             echo $this->Form->input('title',['label' => 'عنوان']);
             echo $this->Form->input('url',['label' => 'آدرس' , 'dir' => 'ltr']);
-            echo $this->Form->input('logo_remote',['label' => 'آدرس لوگو']);
-            echo $this->Form->input('logo_upload',['label' => 'آدرس لوگو']);
+
         ?>
  
 	</div>

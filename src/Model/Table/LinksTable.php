@@ -7,6 +7,7 @@ use Cake\Validation\Validator;
 use Rita\Core\ORM\Table;
 use Rita\Links\Model\Entity\Link;
 
+
 /**
  * LinksLinks Model
  */
@@ -28,11 +29,13 @@ class LinksTable extends Table
         $this->addBehavior('CounterCache', [
             'Categories' => ['link_count']
         ]);
+     
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
             'className' => 'Rita/Links.Categories'
         ]);
     }
+       
 
     /**
      * Default validation rules.
@@ -45,9 +48,16 @@ class LinksTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
+            ->add('category_id', 'valid', ['rule' => 'numeric'])
+            ->notEmpty('category_id','موضوع را انتخاب نمایید')
             ->requirePresence('title', true)
-            ->notEmpty('title')
-            ->notEmpty('url')
+            ->notEmpty('title','گزینه را کامل نمایید.')
+            ->add('url',[
+                'valid' => [
+                    'rule' => ['url',true],
+                    'message' => 'آدرس وب صحیحی نیست (فرمت صحیح : http://domain.ir)'   
+                ]
+            ])
             ->add('hits', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('hits');
 
@@ -66,4 +76,5 @@ class LinksTable extends Table
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
         return $rules;
     }
+ 
 }
