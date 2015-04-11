@@ -25,6 +25,7 @@ class CategoriesTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Rita/Tools.Slug');
         $this->hasMany('Links', [
             'foreignKey' => 'category_id',
             'className' => 'Rita/Links.Links'
@@ -43,11 +44,7 @@ class CategoriesTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             ->requirePresence('title', 'create')
-            ->notEmpty('title')
-            ->requirePresence('note', 'create')
-            ->notEmpty('note')
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->notEmpty('title');
 
         return $validator;
     }

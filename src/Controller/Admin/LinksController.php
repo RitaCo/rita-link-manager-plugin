@@ -37,7 +37,7 @@ class LinksController extends AppController
      */
     public function view($id = null)
     {
-        $post = $this->Posts->get($id, [
+        $post = $this->Links->get($id, [
            // 'contain' => []
         ]);
         $this->set('post', $post);
@@ -51,17 +51,17 @@ class LinksController extends AppController
      */
     public function add()
     {
-        $post = $this->Posts->newEntity();
+        $post = $this->Links->newEntity();
         if ($this->request->is('post')) {
-            $post = $this->Posts->patchEntity($post, $this->request->data);
-            if ($this->Posts->save($post)) {
+            $post = $this->Links->patchEntity($post, $this->request->data);
+            if ($this->Links->save($post)) {
                 $this->Flash->success('عملیات ذخیره سازی با موفقیت انجام گردید.');
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('عملیات ناموفق است. مجدد تلاش نمایید');
             }
         }
-        $categories = $this->Posts->Categories->find('list');
+        $categories = $this->Links->Categories->find('list');
         $this->set(compact('post','categories'));
         $this->set('_serialize', ['post','categories']);
     }

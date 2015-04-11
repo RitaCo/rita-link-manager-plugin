@@ -25,6 +25,9 @@ class LinksTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->addBehavior('CounterCache', [
+            'Categories' => ['link_count']
+        ]);
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
             'className' => 'Rita/Links.Categories'
@@ -42,12 +45,11 @@ class LinksTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->requirePresence('title', 'create')
+            ->requirePresence('title', true)
             ->notEmpty('title')
-            ->requirePresence('body', 'create')
-            ->notEmpty('body')
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->notEmpty('url')
+            ->add('hits', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('hits');
 
         return $validator;
     }
@@ -61,7 +63,7 @@ class LinksTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['links_category_id'], 'LinksCategories'));
+        $rules->add($rules->existsIn(['category_id'], 'Categories'));
         return $rules;
     }
 }

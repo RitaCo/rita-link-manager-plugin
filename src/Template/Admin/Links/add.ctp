@@ -1,6 +1,6 @@
 
 <?php
-   $this->assign('title','مدیریت / موضوع‌ها');
+   $this->assign('title','مدیریت پیوندها / درج پیوند');
    $this->assign('note','فهرست تمامی موضوع‌ها');
 ?>
 <div class="ui-panel-framed ">
@@ -25,10 +25,11 @@
 		<div class="body-container padding-none">
           
         <?php
-            echo $this->Form->input('category_id', [ 'empty' => true]);
+            echo $this->Form->input('category_id', [ 'empty' => true, 'label' => 'موضوع']);
             echo $this->Form->input('title',['label' => 'عنوان']);
-            echo $this->Form->input('body');
-            echo $this->Form->input('slug');
+            echo $this->Form->input('url',['label' => 'آدرس' , 'dir' => 'ltr']);
+            echo $this->Form->input('logo_remote',['label' => 'آدرس لوگو']);
+            echo $this->Form->input('logo_upload',['label' => 'آدرس لوگو']);
         ?>
  
 	</div>

@@ -18,7 +18,8 @@ class LinksLinksTableTest extends TestCase
      */
     public $fixtures = [
         'LinksLinks' => 'plugin.rita/links.links_links',
-        'LinksCategories' => 'plugin.rita/links.links_categories'
+        'Categories' => 'plugin.rita/links.categories',
+        'Links' => 'plugin.rita/links.links'
     ];
 
     /**

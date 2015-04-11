@@ -15,10 +15,12 @@ class Link extends Entity
      * @var array
      */
     protected $_accessible = [
-        'category_id' => true,
+     'category_id' => true,
         'title' => true,
-        'body' => true,
-        'slug' => true,
+        'url' => true,
+        'logo_remote' => true,
+        'logo_upload' => true,
+        'hits' => true,
         'category' => true,
     ];
 }
