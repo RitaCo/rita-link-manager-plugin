@@ -1,9 +1,9 @@
 {
-    "name": "ritaco/linkmanager",
-    "description": "Rita/LinkManager plugin for CakePHP",
+    "name": "ritaco/links",
+    "description": "Link Manager addon for Rita 3",
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "plugin", "link", "link-manager", "rita", "ritaco"],
-    "homepage": "https://github.com/RitaCo/rita-link-manager-plugin",
+    "homepage": "https://github.com/RitaCo/rita-links-addon.git",
     "license": "MIT",
     "authors": [
         {
@@ -21,20 +21,20 @@
     },
     "autoload": {
         "psr-4": {
-            "Rita/LinkManager\\": "src"
+            "Rita/Links\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rita/LinkManager\\Test\\": "tests",
+            "Rita/Links\\Test\\": "tests",
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     },
     "support":{
-        "source": "https://github.com/RitaCo/rita-link-manager-plugin",
-        "issues": "https://github.com/RitaCo/rita-link-manager-plugin/issues"
+        "source": "https://github.com/RitaCo/rita-links-addon",
+        "issues": "https://github.com/RitaCo/rita-links-addon/issues"
     },
     "extra": {
-        "installer-name": "Rita/LinkManager"
+        "installer-name": "Rita/Links"
     }    
 }

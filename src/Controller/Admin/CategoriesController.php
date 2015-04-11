@@ -1,7 +1,7 @@
 <?php
-namespace Rita\LinkManager\Controller\Admin;
+namespace Rita\Links\Controller\Admin;
 
-use Rita\LinkManager\Controller\AppController;
+use Rita\Links\Controller\AppController;
 
 class CategoriesController extends AppController
 {

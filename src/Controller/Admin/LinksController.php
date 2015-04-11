@@ -1,22 +1,17 @@
 <?php
-namespace Rita\LinkManager\Controller\Admin;
+namespace Rita\Links\Controller\Admin;
 
-use Rita\LinkManager\Controller\AppController;
+use Rita\Links\Controller\AppController;
 
 /**
  * Posts Controller
  *
- * @property \Rita\LinkManager\Model\Table\PostsTable $Links
+ * @property \Rita\Links\Model\Table\PostsTable $Links
  */
 class LinksController extends AppController
 {
-    public $paginate = ['contain' => 'Categories'];
 
 
- public $helpers = ['AkkaCKEditor.CKEditor' => [
-        'version' => '4.4.7', // Default Option
-        'distribution' => 'full' // Default Option / Other options => 'basic', 'standard', 'standard-all', 'full-all'
-    ]];
     
     public function initialize(){
         parent::initialize();
@@ -29,7 +24,7 @@ class LinksController extends AppController
      */
     public function index()
     {   
-        $this->set('Posts', $this->paginate($this->Posts));
+        //$this->set('Posts', $this->paginate($this->));
         $this->set('_serialize', ['Posts']);
     }
 

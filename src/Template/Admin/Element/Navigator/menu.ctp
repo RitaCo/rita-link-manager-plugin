@@ -5,13 +5,13 @@
 							</a>
 							<ul class="menu-submenu">
 								<li>
-									<a href="/admin/links-manager/links">
+									<a href="/admin/link-manager/links">
 										<div class="icon"><i class="   icon-link"></i></div>
 										<div class="label"><span>پیوند</span></div>
 									</a>
 								</li>
 								<li>
-									<a href="/admin/links-manager/categories">
+									<a href="/admin/link-manager/categories">
 										<div class="icon"><i class="fa fa-calendar"></i></div>
 										<div class="label"><span>دسته‌بندی</span></div>
 									</a>

@@ -1,10 +1,10 @@
 <?php
 
-namespace Learning\Controller\Front;
+namespace Rita\Links\Controller\Front;
 
-use Learning\Controller\AppController;
+use Rita\Links\Controller\AppController;
 
-class PostsController extends AppController
+class LinksController extends AppController
 {
 
     public function index(){
