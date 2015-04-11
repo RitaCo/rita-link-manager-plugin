@@ -24,7 +24,7 @@ class LinksController extends AppController
      */
     public function index()
     {   
-        //$this->set('Posts', $this->paginate($this->));
+        $this->set('Posts', $this->paginate($this->Links));
         $this->set('_serialize', ['Posts']);
     }
 
