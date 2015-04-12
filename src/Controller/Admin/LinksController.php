@@ -135,12 +135,12 @@ class LinksController extends AppController
             'input' => $picture,
             'output' => $trgPath,
             'units' => 'px',
-            'width' => 120,
-            'height' => 120,
+            'width' => 150,
+            'height' => 75,
             'quality' => 100,
             'compression' => 1,
             'enlarge' => true,
-            'mode' => 'fit'
+            'mode' => 'stretch'
          ]);
          
          if ($res) {

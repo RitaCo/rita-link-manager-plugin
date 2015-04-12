@@ -43,7 +43,6 @@
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $learningCategory->id],['class' => 'btn']) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $learningCategory->id],['class' => 'btn']) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $learningCategory->id], ['class' => 'btn', 'confirm' => __('Are you sure you want to delete # {0}?', $learningCategory->id)]) ?>
             </td>
         </tr>
     <?php endforeach; ?>

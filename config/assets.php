@@ -4,7 +4,7 @@ return [
         'base' => [
         ],
         'front' => [
-
+            'Rita/Links.links-front'
         ],
         'client' => [
         ],

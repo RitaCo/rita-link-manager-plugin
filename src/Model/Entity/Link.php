@@ -8,6 +8,8 @@ use Rita\Core\ORM\Entity;
  */
 class Link extends Entity
 {
+    
+    protected  $_virtual = [ 'hasImage']; 
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -23,4 +25,20 @@ class Link extends Entity
         'hits' => true,
         'category' => true,
     ];
+    
+    
+    
+    
+    protected function _getHasImage()
+    {
+        $res = false;   
+         if (!empty($this->_properties['logo_remote'])){
+            return $this->_properties['logo_remote'];
+         } elseif (!empty($this->_properties['logo_upload'])){
+            return $this->_properties['logo_upload'];
+         } 
+         
+         return false;
+         
+    }
 }

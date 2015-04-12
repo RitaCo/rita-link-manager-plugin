@@ -1,0 +1,23 @@
+#links {
+  background-color: #2E2E2E;
+  border-bottom: 1px solid #555;
+  padding: 50px 20% !important;
+}
+#links-widget {
+  display: flex;
+  position: realtive;
+  flex-wrap: wrap;
+}
+#links-widget.vertical {
+  flex-direction: row ;
+}
+#links-widget .link-wrap {
+  border: 1px solid #888;
+  background-color: #999;
+  margin: 5px 10px;
+  position: relative;
+  box-shadow: 4px 4px 4px -1px rgba(16, 16, 16, 0.93);
+}
+#links-widget .link-wrap img {
+  display: block;
+}

@@ -26,13 +26,13 @@
     <thead>
         <tr>
             <th width="5%"><?= $this->Paginator->sort('id','#') ?></th>
-            <th width="5%"><?= $this->Paginator->sort('category_id','موضوع') ?></th>
+            <th width="15%"><?= $this->Paginator->sort('category_id','موضوع') ?></th>
             <th width="20%"><?= $this->Paginator->sort('title','عنوان') ?></th>
             <th width="30%"><?= $this->Paginator->sort('url', 'آدرس') ?></th>
             <th width="5%"><?= $this->Paginator->sort('created','ایجاد') ?></th>
             <th width="5%"><?= $this->Paginator->sort('modified', 'تغییر') ?></th>
             
-            <th width="25%" class="actions"><?= __('عملیات') ?></th>
+            <th width="20%" class="actions"><?= __('عملیات') ?></th>
         </tr>
     </thead>
     <tbody>
@@ -48,7 +48,7 @@
             <td><?= h($Post->modified->i18nFormat("YY/MM/dd")) ?></td>
             <td class="actions">
                 <div class="btn-group">
-                <?= $this->Html->link('مشاهده', ['action' => 'view', $Post->id],['class' => 'btn']) ?>
+              
                 <?= $this->Html->link('ویرایش', ['action' => 'edit', $Post->id],['class' => 'btn btn-green']) ?>
                 <?= $this->Form->postLink('حذف', ['action' => 'delete', $Post->id], ['class' => 'btn btn-red','confirm' => __('Are you sure you want to delete # {0}?', $Post->id)]) ?>
                 </div>
