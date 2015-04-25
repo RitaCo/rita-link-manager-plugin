@@ -1,6 +1,7 @@
 <?php
-   $this->assign('title','مدیریت / موضوع‌ها');
-   $this->assign('note','فهرست تمامی موضوع‌ها');
+   $this->Rita->setPageCaption('پیوندها')
+   ->setPageCaption('دسته‌بندی')
+   ->setPageNote('شماهمکنون تمامی دسته بندی های تعریف شده در افزونه پیوندها را مشاهده می‌نمایید.');
 ?>
 <div class="ui-panel-framed ">
 	<div class="panel-header bg-flat">
@@ -10,10 +11,7 @@
 		<div class="body-header padding-none">
 			<div class="ui-toolbar">
 				<div class="toolbar-band ">
-					<a class="btn" href="<?= $this->Url->build(['action' => 'add'])?>">	
-						<i class="  icon-createfolder"></i>
-						<span>جدید</span>
-					</a>
+					<?= $this->Html->bottunIcon('پیوند جدید', 'mdi-plus-circle',['action' => 'add'] ); ?>
 					
 				</div>
 			</div>
@@ -25,24 +23,26 @@
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('id','#') ?></th>
+            <th width="25px"><?= $this->Paginator->sort('id','#') ?></th>
             <th><?= $this->Paginator->sort('title','عنوان') ?></th>
             <th><?= $this->Paginator->sort('slug','نامک') ?></th>
-            <th><?= $this->Paginator->sort('created','ثبت شده') ?></th>
+            <th width="95px"><?= $this->Paginator->sort('created','ایجاد') ?></th>
+            <th width="95px"><?= $this->Paginator->sort('modified','ایجاد') ?></th>
             
-            <th class="actions"><?= __('عملیات') ?></th>
+            <th width="160px" class="actions"><?= __('عملیات') ?></th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($Categories as $learningCategory): ?>
         <tr>
             <td><?= $this->Number->format($learningCategory->id) ?></td>
-            <td><?= h($learningCategory->title) ?></td>
-            <td><?= h($learningCategory->slug) ?></td>
-            <td><?= h($learningCategory->created) ?></td>
+            <td><?= p($learningCategory->title) ?></td>
+            <td><?= p($learningCategory->slug) ?></td>
+            <td><?= p($learningCategory->created) ?></td>
+            <td><?= p($learningCategory->modified) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $learningCategory->id],['class' => 'btn']) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $learningCategory->id],['class' => 'btn']) ?>
+                <?= $this->Html->link(__('ویرایش'), ['action' => 'edit', $learningCategory->id],['class' => 'btn btn-green']) ?>
+                <?= $this->Form->postLink(__('حذف'), ['action' => 'delete', $learningCategory->id], ['class' => 'btn btn-red', 'confirm' => __('Are you sure you want to delete # {0}?', $learningCategory->id)]) ?>
             </td>
         </tr>
     <?php endforeach; ?>

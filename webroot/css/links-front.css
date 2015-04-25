@@ -1,15 +1,22 @@
 #links {
-  background-color: #2E2E2E;
+  background-color: #A1A1A1;
   border-bottom: 1px solid #555;
+  border-top: 1px solid #888 !important;
   padding: 50px 20% !important;
 }
 #links-widget {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   position: realtive;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 #links-widget.vertical {
-  flex-direction: row ;
+  -webkit-flex-direction: row ;
+      -ms-flex-direction: row ;
+          flex-direction: row ;
 }
 #links-widget .link-wrap {
   border: 1px solid #888;
